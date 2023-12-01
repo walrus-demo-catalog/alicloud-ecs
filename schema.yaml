@@ -1,0 +1,123 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI schema for template alicloud-ecs
+components:
+  schemas:
+    variables:
+      type: object
+      properties:
+        instance_name:
+          title: Instance Name
+          type: string
+          description: The instance name and hostname of the ECS instance
+          nullable: true
+          x-walrus-ui:
+            order: 1
+            group: Basic
+        cpu_core_count:
+          title: Cpu Core Count
+          type: number
+          description: 'The CPU core of the ECS instance, value range: [1, 208]'
+          default: 1
+          nullable: true
+          minimum: 1
+          maximum: 208
+          x-walrus-ui:
+            order: 2
+            group: Basic
+        memory_size:
+          title: Memory Size
+          type: number
+          description: 'The memory size of the ECS instance, value range: [1,
+            3072]'
+          default: 2
+          nullable: true
+          minimum: 1
+          maximum: 3072
+          x-walrus-ui:
+            order: 3
+            group: Basic
+        image_regex:
+          title: Image Regex
+          type: string
+          description: The image regex of the image used to launch the ECS instance,
+            refer to https://help.aliyun.com/zh/ecs/user-guide/release-notes-for-2023
+          default: ^ubuntu_22
+          nullable: true
+          x-walrus-ui:
+            order: 4
+            group: Basic
+        system_disk_category:
+          title: System Disk Category
+          type: string
+          description: The category of the system disk, valid values are ephemeral_ssd,
+            cloud_efficiency, cloud_ssd, cloud_essd, cloud_auto
+          default: cloud_efficiency
+          nullable: true
+          enum:
+          - cloud_efficiency
+          - cloud_ssd
+          - cloud_essd
+          - cloud_auto
+          - ephemeral_ssd
+          x-walrus-ui:
+            order: 5
+            group: Basic
+        system_disk_size:
+          title: System Disk Size
+          type: number
+          description: 'The size of the system disk, value range: [20, 500]'
+          default: 40
+          nullable: true
+          minimum: 20
+          maximum: 500
+          x-walrus-ui:
+            order: 6
+            group: Basic
+        internet_charge_type:
+          title: Internet Charge Type
+          type: string
+          description: The billing method of the public network bandwidth, valid values
+            are PayByBandwidth, PayByTraffic
+          default: PayByTraffic
+          nullable: true
+          enum:
+          - PayByTraffic
+          - PayByBandwidth
+          x-walrus-ui:
+            order: 7
+            group: Advanced
+        internet_max_bandwidth_out:
+          title: Internet Max Bandwidth Out
+          type: number
+          description: 'The maximum outbound bandwidth of the public network, larger
+            than 0 can allocate a public ip address for an instance, value range:
+            [0, 100]'
+          default: 10
+          nullable: true
+          minimum: 0
+          maximum: 100
+          x-walrus-ui:
+            order: 8
+            group: Advanced
+        init_script:
+          title: Init Script
+          type: string
+          description: User-defined init script to customize the startup behaviors
+            of the ECS instance and to pass data into the ECS instance, aka user_data
+          default: |
+            #!/bin/bash
+            apt update
+          nullable: true
+          x-walrus-ui:
+            order: 9
+            group: Advanced
+        key_name:
+          title: Key Name
+          type: string
+          description: Name of the ssh private key, must already exist
+          default: seal-alicloud-shenzhen
+          nullable: true
+          x-walrus-ui:
+            order: 10
+            group: Advanced
