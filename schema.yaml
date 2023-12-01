@@ -18,7 +18,7 @@ components:
           title: Cpu Core Count
           type: number
           description: 'The CPU core of the ECS instance, value range: [1, 208]'
-          default: 1
+          default: 2
           nullable: true
           minimum: 1
           maximum: 208
@@ -28,9 +28,9 @@ components:
         memory_size:
           title: Memory Size
           type: number
-          description: 'The memory size of the ECS instance, value range: [1,
+          description: 'The memory size of the ECS instance, value range: [0.5, 1,
             3072]'
-          default: 2
+          default: 4
           nullable: true
           minimum: 1
           maximum: 3072

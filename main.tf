@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    alicloud = {
+      source = "aliyun/alicloud"
+      version = "1.213.0"
+    }
+  }
+}
+
 resource "alicloud_instance" "ecs" {
   instance_name        = var.instance_name
   instance_type        = data.alicloud_instance_types.types_ds.instance_types.0.id

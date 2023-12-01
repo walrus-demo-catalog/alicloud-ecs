@@ -5,12 +5,12 @@ variable "instance_name" {
 
 variable "cpu_core_count" {
   description = "The CPU core of the ECS instance, value range: [1, 208]"
-  default     = 1
+  default     = 2
 }
 
 variable "memory_size" {
   description = "The memory size of the ECS instance, value range: [0.5, 1, 3072]"
-  default     = 2
+  default     = 4
 }
 
 variable "image_regex" {
