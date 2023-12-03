@@ -112,6 +112,7 @@ components:
           x-walrus-ui:
             order: 9
             group: Advanced
+            widget: TextArea
         key_name:
           title: Key Name
           type: string
